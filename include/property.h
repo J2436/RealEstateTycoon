@@ -10,7 +10,7 @@ public:
     void setRent(int);
     void setLocation();
     void setValue(int);
-
+    void showTenants();
     virtual ~Property();
 
 protected:
@@ -20,9 +20,8 @@ protected:
     int mortgage_length;
     int value;
     int rent;
+    int occupiedRooms;
     std::string location;
     Tenant *tenants;
-
-private:
 };
 #endif

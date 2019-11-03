@@ -1,4 +1,5 @@
-#include "Property.h"
+#include "include/property.h";
+#include <cstdlib>;
 
 void Property::setRent(int n)
 {
@@ -7,6 +8,7 @@ void Property::setRent(int n)
 
 void Property::setLocation()
 {
+
     srand(time(0));
     int r = rand() % 5;
     switch (r)
