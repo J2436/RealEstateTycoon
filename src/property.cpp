@@ -1,15 +1,31 @@
-#include "include/property.h";
-#include <cstdlib>;
+#include "include/property.h"
+#include <string>
+#include <cstdlib>
 
 void Property::setRent(int n)
 {
     rent = n;
 }
 
+void Property::modPropVal(float n)
+{
+    if (n > 0)
+    {
+        value += (value * n);
+    }
+    else
+    {
+        value -= (value * n);
+    }
+}
+
+Property::Property()
+{
+    setLocation();
+};
+
 void Property::setLocation()
 {
-
-    srand(time(0));
     int r = rand() % 5;
     switch (r)
     {
@@ -30,3 +46,9 @@ void Property::setLocation()
         break;
     }
 };
+
+std::string Property::toString()
+{
+    std::string result = std::string("Rent: ") += rent;
+    return result;
+}

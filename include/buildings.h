@@ -6,4 +6,4 @@
 #include "apartment.h"
 #include "complex.h"
 
-#endif //  BUILDINGS_H!
+#endif //  BUILDINGS_!

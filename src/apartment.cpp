@@ -1,24 +1,16 @@
 #include "include/apartment.h"
 #include <cstdlib>
 
-// Apartment::Apartment()
-// {
-//     setRent(rand() % 5000);
-//     rooms = rand() % 10;
-//     mortgage = 300000 + (rand() % (600000 - 300000 + 1));
-//     propertyTax = mortgage * 1.5;
-//     mortgage_length = mortgage / int(propertyTax);
-// }
-
 Apartment::Apartment()
 {
-    rent = 0;
-    value = 0;
-    mortgage = 0; // random number < 5000
-    mortgage_length = value / mortgage;
-    propertyTax = 1.5 * value;
-    rooms = 0;
-    setLocation();
+    rent = (rand() % 5000) + 1;
+    rooms = (rand() % 10) + 1;
+    occupiedRooms = rooms;
+    value = 300000 + (rand() % 300000) + 1;
+    propTax = value * 1.5;
+    mortgage_total = value;
+    mortgage_monthly = (rand() % 5000) + 1;
+    mortgage_length = mortgage_total / mortgage_monthly;
 }
 
 int Apartment::getRent()

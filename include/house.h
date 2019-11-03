@@ -9,8 +9,8 @@ public:
 
    // Big 3
    House();
-   ~House();
-   House(const House &house);
+   // ~House();
+   // House(const House &house);
 
 private:
 };

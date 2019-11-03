@@ -1,16 +1,17 @@
-#include "include/Property.h"
-#include "include/House.h"
-#include "include/Apartment.h"
-#include "include/Business.h"
+// #include "include/buildings.h"
+#include "include/property.h"
+#include "include/house.h"
+
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+
 using namespace std;
+
 int main(int argc, char const *argv[])
 {
-  Property *props;
+  srand(time(NULL));
   House h1;
-  h1.setRent(2000);
-  props[0] = h1;
-
-  std::cout << props[1].getRent() << std::endl;
+  cout << h1.toString() << endl;
   return 0;
 }

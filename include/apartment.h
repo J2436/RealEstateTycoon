@@ -6,11 +6,14 @@ class Apartment : public Property
 {
 public:
     virtual int getRent();
+
     // Big 3
     Apartment();
-    ~Apartment();
+    // ~Apartment();
 
 private:
+    int rooms;
+    int occupiedRooms;
 };
 
 #endif

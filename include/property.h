@@ -7,20 +7,22 @@ class Property
 {
 public:
     virtual int getRent() = 0;
+    std::string toString();
     void setRent(int);
     void setLocation();
-    void setValue(int);
+    void modPropVal(float);
     void showTenants();
+    Property();
     virtual ~Property();
 
 protected:
-    int mortgage;
-    float propertyTax;
-    int rooms;
+    int mortgage_total;
     int mortgage_length;
-    int value;
+    int mortgage_monthly;
+
+    float propTax;
+    float value;
     int rent;
-    int occupiedRooms;
     std::string location;
     Tenant *tenants;
 };
