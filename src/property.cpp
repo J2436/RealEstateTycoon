@@ -1,4 +1,4 @@
-#include "include/property.h"
+#include "../include/property.h"
 #include <string>
 #include <cstdlib>
 
@@ -49,6 +49,10 @@ void Property::setLocation()
 
 std::string Property::toString()
 {
-    std::string result = std::string("Rent: ") += rent;
+    std::string result = "Rent: " + rent;
     return result;
+}
+
+std::string Property::getLocation(){
+    return location;
 }

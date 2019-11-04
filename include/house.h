@@ -6,7 +6,7 @@ class House : public Property
 {
 public:
    virtual int getRent();
-
+   virtual std::string toString();
    // Big 3
    House();
    // ~House();
