@@ -3,7 +3,7 @@
 
 Apartment::Apartment()
 {
-    rent = (rand() % 5000) + 1;
+    rent = 500 + (rand() % 4500) + 1;
     rooms = (rand() % 10) + 1;
     occupiedRooms = rooms;
     value = 300000 + (rand() % 300000) + 1;

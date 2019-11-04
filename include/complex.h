@@ -5,7 +5,16 @@
 class Complex : public Property
 {
 public:
+    virtual int getRent();
+    virtual std::string toString();
+    
+    //Big 3
+    Complex();
+    // ~Complex();
+    Complex(const Complex &house);
 private:
+    int spaces;
+    Property *businesses;
 };
 
 #endif

@@ -1,8 +1,9 @@
 #include "../include/house.h"
 #include <cstdlib>
+#include <iostream>
 House::House()
 {
-  this->rent = 500 + (rand() % 4500) + 1;
+  rent = 500 + (rand() % 4500) + 1;
   value = 100000 + (rand() % 500000);
   mortgage_total = value;
   mortgage_monthly = (rand() % 5000) + 1;
@@ -13,7 +14,7 @@ House::House()
 
 int House::getRent()
 {
-  return this->rent;
+  return rent;
 }
 
 std::string House::toString()
@@ -25,4 +26,8 @@ std::string House::toString()
          "  Monthly Mortgage Payments: " + std::to_string(mortgage_monthly) + "\n" +
          "  Turns to pay off mortgage: " + std::to_string(mortgage_length);
   return out;
+}
+
+House::~House(){
+  std::cout << "Deleted House" << std::endl;
 }

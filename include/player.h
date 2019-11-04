@@ -1,22 +1,23 @@
-#include "Property.h";
+#include "property.h";
 
-#ifndef Player_H
+#ifndef PLAYER_H
 #define PLAYER_H
 
 class Player
 {
 public:
   void collectRent(Property);
-  void payDues();
-  void purchaseProp();
+  void purchaseProp(Property);
   void sellProp();
 
-  Property *props;
+  //Big 3
   Player();
   ~Player();
+  Player(const Player &house);
 
 private:
   int money;
+  Property *props;
 };
 
 #endif
