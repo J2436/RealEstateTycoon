@@ -9,12 +9,22 @@ House::House()
   mortgage_monthly = (rand() % 5000) + 1;
   mortgage_length = mortgage_total / mortgage_monthly;
   propTax = 1.5 * value;
+  numOfTenants = 1;
+  tenant = new Citizen();
   setLocation();
 }
 
 int House::getRent()
 {
-  return rent;
+  if (numOfTenants == 0 || tenant->getBudget() < rent && tenant->getAgreeability() < 2 ) { 
+    return 0;
+  } else if (tenant->getBudget() < rent && tenant->getAgreeability() >= 2) {
+    tenant = NULL;
+    numOfTenants = 0;
+    return 0;
+  } else { 
+    return rent;
+  }
 }
 
 std::string House::toString()
@@ -28,6 +38,33 @@ std::string House::toString()
   return out;
 }
 
-House::~House(){
+House::House(const House &orig)
+{
+  rent = orig.rent;
+  value = orig.value;
+  propTax = orig.propTax;
+  location = orig.location;
+  mortgage_total = orig.mortgage_total;
+  mortgage_monthly = orig.mortgage_monthly;
+  mortgage_length = orig.mortgage_length;
+}
+
+House & House::operator=(const House &orig)
+{
+  if (&orig == this){
+    return (*this);
+  }
+  rent = orig.rent;
+  value = orig.value;
+  propTax = orig.propTax;
+  location = orig.location;
+  mortgage_total = orig.mortgage_total;
+  mortgage_monthly = orig.mortgage_monthly;
+  mortgage_length = orig.mortgage_length;
+  return (*this);
+}
+
+House::~House()
+{
   std::cout << "Deleted House" << std::endl;
 }

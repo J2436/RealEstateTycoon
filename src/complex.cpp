@@ -1,4 +1,5 @@
 #include "../include/complex.h"
+#include <iostream>
 
 Complex::Complex()
 {
@@ -11,3 +12,21 @@ Complex::Complex()
   spaces = (rand() & 5) + 1;
   setLocation();
 }
+
+Complex::~Complex()
+{
+    std::cout << "Deleted Complex" << std::endl;
+}
+
+Complex::Complex(const Complex &orig)
+{
+    rent = orig.rent;
+    value = orig.value;
+    propTax = orig.propTax;
+    location = orig.location;
+    mortgage_total = orig.mortgage_total;
+    mortgage_monthly = orig.mortgage_monthly;
+    mortgage_length = orig.mortgage_length;
+    spaces = orig.spaces;
+}
+

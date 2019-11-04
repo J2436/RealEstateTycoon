@@ -1,4 +1,5 @@
 #include "property.h"
+#include "citizen.h"
 
 #ifndef HOUSE_H
 #define HOUSE_H
@@ -8,11 +9,12 @@ public:
    virtual int getRent();
    virtual std::string toString();
 
-   // Big 3
    House();
    ~House();
-   // House(const House &house);
+   House(const House &orig);
+   House & operator=(const House &orig);
 
 private:
+   Citizen *tenant;
 };
 #endif

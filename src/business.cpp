@@ -1,4 +1,4 @@
-#include "include/business.h"
+#include "../include/business.h"
 
 Business::Business(){
     agreeability = (rand() % 5) + 1;

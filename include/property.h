@@ -10,7 +10,7 @@ public:
 
     void setRent(int);
     void setLocation();
-
+    bool canSell();
     std::string getLocation();
 
     void modPropVal(float);
@@ -23,7 +23,7 @@ protected:
     int mortgage_total;
     int mortgage_length;
     int mortgage_monthly;
-
+    int numOfTenants;
     float propTax;
     float value;
     int rent;

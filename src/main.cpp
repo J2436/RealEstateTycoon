@@ -12,9 +12,8 @@ using namespace std;
 int main(int argc, char const *argv[])
 {
   srand(time(NULL));
-  House h1;
   Apartment a1;
-  cout << h1.toString() << endl;
-  cout << a1.toString() << endl;
+  
+  cout << a1.getRent() << endl;
   return 0;
 }

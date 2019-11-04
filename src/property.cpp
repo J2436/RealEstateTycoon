@@ -1,6 +1,7 @@
 #include "../include/property.h"
 #include <string>
 #include <cstdlib>
+#include <iostream>
 
 void Property::setRent(int n)
 {
@@ -53,6 +54,20 @@ std::string Property::toString()
     return result;
 }
 
-std::string Property::getLocation(){
+std::string Property::getLocation()
+{
     return location;
+}
+
+Property::~Property()
+{
+    std::cout<<"Deleted Property" << std::endl;
+}
+
+bool Property::canSell(){
+    if (numOfTenants == 0){
+        return true;
+    } else {
+        return false;
+    }
 }

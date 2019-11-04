@@ -6,18 +6,21 @@
 class Player
 {
 public:
-  void collectRent(Property);
-  void purchaseProp(Property);
-  void sellProp();
+  void collectRent();
+  void buyProp(Property *prop);
+  void sellProp(Property *prop);
+  void changeRent(int);
+  
 
-  //Big 3
   Player();
   ~Player();
-  Player(const Player &house);
+  // Player(const Player &house);
+  // Player & operator=(const Player &right);
 
 private:
   int money;
-  Property *props;
+  int propsOwned;
+  Property **props;
 };
 
 #endif

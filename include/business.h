@@ -7,6 +7,10 @@ class Business
 {
 public: 
     Business();
+    Business(const Business &orig);
+    // Business & operator=(const Business &orig);
+    ~Business();
+
 private:
     int budget;
     int agreeability;    
