@@ -6,14 +6,6 @@ Citizen::Citizen(){
     budget = 500 + ((rand() % 4500) + 1);
 }
 
-int Citizen::getBudget(){
-    return budget;
-}
-
-int Citizen::getAgreeability(){
-    return agreeability;
-}
-
 Citizen::Citizen(const Citizen &orig){
     agreeability = orig.agreeability;
     budget = orig.budget;

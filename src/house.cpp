@@ -1,6 +1,5 @@
 #include "../include/house.h"
 #include <cstdlib>
-#include <iostream>
 House::House()
 {
   rent = 500 + (rand() % 4500) + 1;
@@ -30,11 +29,11 @@ int House::getRent()
 std::string House::toString()
 {
   std::string out = "";
-  out += "House \n  Rent: " + std::to_string(rent) + "\n" + 
-         "  Value: " + std::to_string(value) + "\n" + 
-         "  Mortgage: " + std::to_string(mortgage_total) + "\n" +
-         "  Monthly Mortgage Payments: " + std::to_string(mortgage_monthly) + "\n" +
-         "  Turns to pay off mortgage: " + std::to_string(mortgage_length);
+  out += "House \n      Rent: " + std::to_string(rent) + "\n" + 
+         "      Value: " + std::to_string(value) + "\n" + 
+         "      Mortgage: " + std::to_string(mortgage_total) + "\n" +
+         "      Monthly Mortgage Payments: " + std::to_string(mortgage_monthly) + "\n" +
+         "      Turns to pay off mortgage: " + std::to_string(mortgage_length);
   return out;
 }
 
@@ -66,5 +65,6 @@ House & House::operator=(const House &orig)
 
 House::~House()
 {
-  std::cout << "Deleted House" << std::endl;
+  delete tenant;
+  tenant = nullptr;
 }

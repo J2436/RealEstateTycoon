@@ -1,6 +1,5 @@
 #include "../include/apartment.h"
 #include <cstdlib>
-#include <iostream>
 
 Apartment::Apartment()
 {
@@ -34,23 +33,22 @@ int Apartment::getRent()
     return result;
 }
 
-
 std::string Apartment::toString()
 {
   std::string out = "";
-  out += "Apartment\n  Rent: " + std::to_string(rent) + "\n" + 
-         "  Rooms: " + std::to_string(rooms) + "\n" + 
-         "  Occupied Rooms: " + std::to_string(numOfTenants) + "\n" + 
-         "  Value: " + std::to_string(value) + "\n" + 
-         "  Mortgage: " + std::to_string(mortgage_total) + "\n" +
-         "  Monthly Mortgage Payments: " + std::to_string(mortgage_monthly) + "\n" +
-         "  Turns to pay off mortgage: " + std::to_string(mortgage_length);
+  out += "Apartment\n      Rent: " + std::to_string(rent) + "\n" + 
+         "      Rooms: " + std::to_string(rooms) + "\n" + 
+         "      Occupied Rooms: " + std::to_string(numOfTenants) + "\n" + 
+         "      Value: " + std::to_string(value) + "\n" + 
+         "      Mortgage: " + std::to_string(mortgage_total) + "\n" +
+         "      Monthly Mortgage Payments: " + std::to_string(mortgage_monthly) + "\n" +
+         "      Turns to pay off mortgage: " + std::to_string(mortgage_length);
   return out;
 }
 
 Apartment::~Apartment(){
-    std::cout << "Deleted Apartment" << std::endl;
     delete[] tenant;
+    tenant = nullptr;
 }
 
 Apartment::Apartment(const Apartment &orig){
@@ -63,7 +61,26 @@ Apartment::Apartment(const Apartment &orig){
     mortgage_monthly = orig.mortgage_monthly;
     mortgage_length = orig.mortgage_length;
     tenant = new Citizen[numOfTenants];
-    // for (int i = 0; i < occupiedRooms; i++){
+    for (int i = 0; i < numOfTenants; i++){
+        tenant[i] = orig.tenant[i];
+    }
+}
 
-    // }
+Apartment & Apartment::operator=(const Apartment &orig){
+    if (&orig == this){
+        return (*this);
+    }
+    rent = orig.rent;
+    value = orig.value;
+    propTax = orig.propTax;
+    rooms = orig.rooms;
+    numOfTenants= orig.numOfTenants;
+    mortgage_total = orig.mortgage_total;
+    mortgage_monthly = orig.mortgage_monthly;
+    mortgage_length = orig.mortgage_length;
+    tenant = new Citizen[numOfTenants];
+    for (int i = 0; i < numOfTenants; i++){
+        tenant[i] = orig.tenant[i];
+    }
+    return (*this);
 }

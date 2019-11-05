@@ -15,6 +15,6 @@ public:
    House & operator=(const House &orig);
 
 private:
-   Citizen *tenant;
+   Tenant *tenant;
 };
 #endif

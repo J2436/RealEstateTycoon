@@ -1,16 +1,12 @@
+#include "tenant.h"
 #ifndef CITIZEN_H
 #define CITIZEN_H
 
-class Citizen{
+class Citizen:public Tenant{
 public:
-    int getBudget();
-    int getAgreeability();
     Citizen();
     Citizen(const Citizen &orig);
     Citizen & operator=(const Citizen &orig);
-private:
-    int budget;
-    int agreeability;
 };
 
 #endif

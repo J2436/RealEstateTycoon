@@ -5,5 +5,6 @@
 #include "house.h"
 #include "apartment.h"
 #include "complex.h"
+#include "space.h"
 
 #endif //  BUILDINGS_!

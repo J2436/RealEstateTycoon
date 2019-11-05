@@ -48,12 +48,6 @@ void Property::setLocation()
     }
 };
 
-std::string Property::toString()
-{
-    std::string result = "Rent: " + rent;
-    return result;
-}
-
 std::string Property::getLocation()
 {
     return location;
@@ -61,10 +55,9 @@ std::string Property::getLocation()
 
 Property::~Property()
 {
-    std::cout<<"Deleted Property" << std::endl;
 }
 
-bool Property::canSell(){
+bool Property::isVacant(){
     if (numOfTenants == 0){
         return true;
     } else {

@@ -1,4 +1,6 @@
 #include "property.h"
+#include "business.h"
+#include "space.h"
 
 #ifndef BUSINESSCOMPLEX_H
 #define BUSINESSCOMPLEX_H
@@ -9,15 +11,15 @@ public:
     virtual int getRent();
     virtual std::string toString();
 
-    //Big 3
     Complex();
     ~Complex();
-    Complex(const Complex &house);
-    // Complex & operator=(const Complex &right);
+    Complex(const Complex &orig);
+    Complex & operator=(const Complex &orig);
 
+    int numOfSpaces;
+    Space* spaces;
 private:
-    int spaces;
-    Property *businesses;
+    // Property** spaces;
 };
 
 #endif

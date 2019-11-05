@@ -8,7 +8,7 @@ class Apartment : public Property
 public:
     virtual int getRent();
     virtual std::string toString();
-    // Big 3
+
     Apartment();
     ~Apartment();
     Apartment(const Apartment &orig);
@@ -16,7 +16,7 @@ public:
 
 private:
     int rooms;
-    Citizen* tenant;
+    Tenant* tenant;
 };
 
 #endif
