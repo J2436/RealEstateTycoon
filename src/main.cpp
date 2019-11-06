@@ -1,4 +1,4 @@
-#include "../include/buildings.h"
+// #include "../include/buildings.h"
 // #include "../include/property.h"
 // #include "../include/house.h"
 // #include "../include/apartment.h"
@@ -8,13 +8,13 @@
 #include "../include/tenant.h"
 #include "../include/citizen.h"
 #include "../include/business.h"
-#include "../include/player.h"
+// #include "../include/player.h"
 #include "../include/game.h"
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
 
-using namespace std;
+// using namespace std;
 
 int main(int argc, char const *argv[])
 { 

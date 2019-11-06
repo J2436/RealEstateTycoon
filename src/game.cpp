@@ -1,9 +1,4 @@
 #include "../include/game.h"
-#include "../include/player.h"
-#include "../include/house.h"
-#include "../include/apartment.h"
-#include "../include/complex.h"
-#include "../include/space.h"
 #include <string.h>
 #include <cstdlib>
 #include <iostream>
@@ -22,14 +17,18 @@ Game::Game(){
 
 Game::~Game(){
     delete[] houses;
+    houses = nullptr;
     delete[] apts;
+    apts = nullptr;
     delete[] complexes;
+    complexes = nullptr;
 }
 
 void Game::gameLoop(){
     int turn = 1;
     do 
     {
+        std::cout << "-----------------------------------------------------------------" << std::endl;
         if (player.getNumOfProps() != 0){
             player.collectRent();
             player.payMortgages();
@@ -55,19 +54,21 @@ void Game::gameLoop(){
 
 void Game::playerTurn()
 {
-    std::string choice = "";
-    int checkInput = 0;
+    std::string choice = "0";
     bool repeat = false; 
+    int checkInput = 0;
     do
     {
+        repeat = false;
         std::cout << "1. Buy a property" << std::endl;
         std::cout << "2. Sell a property" << std::endl;
         std::cout << "3. Change rent of a property" << std::endl;
-        std::cout << "Please choose an action by entering a number: " << std::endl;
+        std::cout << "Please choose an action by entering a number: ";
         do 
         {
             getline(std::cin, choice);
-            if (strlen(choice.c_str()) > 1 || isdigit(choice.at(0)) == 0){
+            std::cout<<std::endl;
+            if (strlen(choice.c_str()) > 1 || strlen(choice.c_str()) == 0 ||isdigit(choice.at(0)) == 0){
                 checkInput = -1;
             } else {
                 checkInput = stoi(choice);
@@ -81,16 +82,18 @@ void Game::playerTurn()
                 if (player.canSell()){
                     sellProperty();
                 } else {
-                    std::cout << "No properties available to sell!" << std::endl;
+                    std::cout << "No properties available to sell!\n" << std::endl;
                     repeat = true;
                 }
                 break;
             case 3:
-                if (player.getNumOfProps == 0){
-                    std::cout << "No properties to change rent on!" << std::endl;
+                if (player.getNumOfProps() == 0){
+                    std::cout << "No properties to change rent on!\n" << std::endl;
                 } else {
                     changeRent();
                 }
+                break;
+            default:
                 break;
         }
     } while (repeat == true);
@@ -111,6 +114,7 @@ void Game::randomEvent()
             break;
         case 3:
             player.earthquake();
+            break;
         case 4:
             player.wildfire();
             break;
@@ -128,12 +132,13 @@ void Game:: buyProperty()
     int randHouse = rand() % houseCount;
     int randApt = rand() % aptCount;
     int randComplex = rand() % complexCount;   
-    std::string choice = 0;
+    std::string choice = "0";
     int checkInput = 0;
     std::cout << "Properties for sale: " << std::endl;
     std::cout << "1. " << houses[randHouse].toString() << std::endl;
     std::cout << "2. " << apts[randApt].toString() << std::endl;
     std::cout << "3. " << complexes[randComplex].toString() << std::endl;
+
     do 
     {
         std::cout << "Choose a property to buy: ";
@@ -155,11 +160,57 @@ void Game:: buyProperty()
         case 3:
             buyComplex(randComplex);
             break;
-    }
+        default:
+            break;
+    } 
 }
 
 void Game:: sellProperty(){
-    
+    std::string priceStr = "";
+    int price = 0;
+    std::string choice = "";
+    int checkInput = 0;
+    player.showVacantProps();
+    std::cout << "\nPlease choose which property to sell: ";
+    do 
+    {
+        getline(std::cin, choice);
+        if (strlen(choice.c_str()) > 1 || isdigit(choice.at(0)) == 0){
+            checkInput = -1;
+        } else {
+            checkInput = stoi(choice);
+        }
+    } while(checkInput < 0 || checkInput > 50);
+    std::cout << "\nHow much would you like to sell it for?";
+    getline(std::cin, priceStr);
+    price = stoi(priceStr);
+    player.sellProp(checkInput, price);
+}
+
+void Game::changeRent()
+{
+    player.showProps();
+    std::string choice = "";
+    std::string priceStr = "";
+    int checkInput = 0;
+    int price = 0;
+    do
+    {
+       std::cout << "Change rent of which property? :" ;
+       getline(std::cin, choice);
+       if (strlen(choice.c_str()) > 1 || strlen(choice.c_str()) == 0 || isdigit(choice.at(0)) == 0){
+            checkInput = -1;
+        } else {
+            checkInput = stoi(choice);
+        }
+    } while (checkInput < 1 || checkInput > player.getNumOfProps());
+    do
+    {
+        std::cout << "New rent value: ";
+        getline(std::cin, priceStr);
+        price = stoi(priceStr);
+    } while (price < 0);
+    player.changeRent(checkInput-1, price);
 }
 
 void Game:: buyHouse(int n)

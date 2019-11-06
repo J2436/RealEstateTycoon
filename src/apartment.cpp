@@ -16,6 +16,7 @@ Apartment::Apartment()
         Citizen tmp;  
         tenant[i] = tmp;
     }
+    type = "apartment";
 }
 
 int Apartment::getRent()

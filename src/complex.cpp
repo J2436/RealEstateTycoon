@@ -16,6 +16,7 @@ Complex::Complex()
     Space tmp;
     spaces[i] = tmp;
   }
+  type = "complex";
   setLocation();
 }
 

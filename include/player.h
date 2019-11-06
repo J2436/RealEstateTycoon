@@ -1,16 +1,21 @@
 #include "property.h"
+#include "house.h"
+#include "apartment.h"
+#include "complex.h"
+#include "space.h"
 #ifndef PLAYER_H
 #define PLAYER_H
 
 class Player
 {
 public:
+  //player actions
   void collectRent();
-  void addProp(Property &prop);
-  void buyProp(Property &prop);
+  void buyProp(Property& prop);
   void sellProp(int, int);
   void payMortgages();
   void payTaxes();
+  void changeRent(int, int);
   // Random Events
   void hurricane();
   void tornado();
@@ -18,15 +23,14 @@ public:
   void wildfire();
   void marketCrash();
   void gentrification();
+  // Getters/Setters
   bool canSell();
-  // void changeRent(int);
   int getNumOfProps();
-  void showProps();
   int getMoney();
+  void showProps();
+  void showVacantProps();
   Player();
   ~Player();
-  // Player(const Player &house);
-  // Player & operator=(const Player &right);
 
 private:
   int propsOwned;

@@ -5,7 +5,7 @@
 Player::Player()
 {
     money = 500000;
-    props = new Property*[5];
+    props = new Property*[20];
     propsOwned = 0;
 }
 
@@ -21,15 +21,17 @@ void Player::collectRent(){
    }
 }
 
-void Player::addProp(Property &prop){
-    props[propsOwned] = &prop;
-    propsOwned++;
+void Player::changeRent(int n, int price){
+    props[n]->setRent(price);
 }
+
 
 void Player::buyProp(Property &prop)
 {
-    addProp(prop);
+    Property * p = &prop;
+    props[propsOwned] = p;
     money -= prop.getValue();
+    propsOwned++;
 }
 
 void Player::sellProp(int n, int price)
@@ -85,7 +87,7 @@ void Player::showProps()
 {
     std::cout << "Properties Owned: " << std::endl;
     for(int i = 0; i < propsOwned; i++){
-        std::cout << "  " << props[i]->toString() << std::endl;
+        std::cout << i+1 <<  ".  " << props[i]->toString() << std::endl;
     }
 }
 
@@ -160,4 +162,12 @@ void Player::gentrification(){
         }
     }
     std::cout << "Gentrification in the " << tmp << "!!!" << std::endl;
+}
+
+void Player::showVacantProps(){
+    for (int i = 0; i < propsOwned; i++){
+        if (props[i]->isVacant()){
+            std::cout << i << ". :"  << props[i]->toString() << std::endl;
+        }
+    } 
 }

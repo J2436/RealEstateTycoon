@@ -13,8 +13,8 @@ public:
    ~House();
    House(const House &orig);
    House & operator=(const House &orig);
-
 private:
    Tenant *tenant;
+
 };
 #endif

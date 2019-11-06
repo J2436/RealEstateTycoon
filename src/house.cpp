@@ -9,6 +9,7 @@ House::House()
   mortgage_length = mortgage_total / mortgage_monthly;
   propTax = 1.5 * value;
   numOfTenants = 1;
+  type = "house";
   tenant = new Citizen();
   setLocation();
 }
@@ -29,9 +30,9 @@ int House::getRent()
 std::string House::toString()
 {
   std::string out = "";
-  out += "House \n      Rent: " + std::to_string(rent) + "\n" + 
+  out += "House \n      Value: " + std::to_string(value) + "\n" + 
+         "      Rent: " + std::to_string(rent) + "\n" + 
          "      Number of Tenants: " + std::to_string(numOfTenants) + "\n" +
-         "      Value: " + std::to_string(value) + "\n" + 
          "      Mortgage: " + std::to_string(mortgage_total) + "\n" +
          "      Monthly Mortgage Payments: " + std::to_string(mortgage_monthly) + "\n" +
          "      Location:  " + getLocation();

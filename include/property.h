@@ -15,9 +15,7 @@ public:
     int getTax();
     bool isVacant();
     std::string getLocation();
-
     void modPropVal(float);
-
     Property();
     virtual ~Property();
     int numOfTenants;

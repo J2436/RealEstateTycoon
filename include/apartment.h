@@ -8,7 +8,6 @@ class Apartment : public Property
 public:
     virtual int getRent();
     virtual std::string toString();
-
     Apartment();
     ~Apartment();
     Apartment(const Apartment &orig);

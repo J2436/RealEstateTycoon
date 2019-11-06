@@ -54,10 +54,7 @@ int Property::getTax(){
     return propTax;
 }
 
-Property::~Property()
-{
-
-}
+Property::~Property(){}
 
 bool Property::isVacant(){
     if (numOfTenants == 0){
