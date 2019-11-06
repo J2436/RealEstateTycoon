@@ -5,7 +5,6 @@ Space::Space(){
     shop = b;
     rent = 2001 + (rand() % 8000);
     numOfTenants = 1;
-    type = "space";
 }
 
 Tenant Space::getTenant(){

@@ -9,7 +9,6 @@ House::House()
   mortgage_length = mortgage_total / mortgage_monthly;
   propTax = 1.5 * value;
   numOfTenants = 1;
-  type = "house";
   tenant = new Citizen();
   setLocation();
 }

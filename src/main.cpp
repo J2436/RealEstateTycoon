@@ -1,10 +1,3 @@
-// #include "../include/buildings.h"
-// #include "../include/property.h"
-// #include "../include/house.h"
-// #include "../include/apartment.h"
-// #include "../include/complex.h"
-// #include "../include/space.h"
-
 #include "../include/tenant.h"
 #include "../include/citizen.h"
 #include "../include/business.h"
