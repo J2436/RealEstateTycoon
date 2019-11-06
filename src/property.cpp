@@ -10,14 +10,7 @@ void Property::setRent(int n)
 
 void Property::modPropVal(float n)
 {
-    if (n > 0)
-    {
-        value += (value * n);
-    }
-    else
-    {
-        value -= (value * n);
-    }
+    value += (value * n);
 }
 
 Property::Property()
@@ -37,7 +30,7 @@ void Property::setLocation()
         location = "NE";
         break;
     case 2:
-        location = "Midwest";
+        location = "MW";
         break;
     case 3:
         location = "SW";
@@ -53,8 +46,17 @@ std::string Property::getLocation()
     return location;
 }
 
+int Property::getMortgage(){
+    return mortgage_monthly;
+}
+
+int Property::getTax(){
+    return propTax;
+}
+
 Property::~Property()
 {
+
 }
 
 bool Property::isVacant(){
@@ -63,4 +65,8 @@ bool Property::isVacant(){
     } else {
         return false;
     }
+}
+
+int Property::getValue(){
+    return value;
 }

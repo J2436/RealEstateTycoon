@@ -15,7 +15,7 @@ House::House()
 
 int House::getRent()
 {
-  if (numOfTenants == 0 || tenant->getBudget() < rent && tenant->getAgreeability() < 2 ) { 
+  if (numOfTenants == 0 || (tenant->getBudget() < rent && tenant->getAgreeability() < 2 )) { 
     return 0;
   } else if (tenant->getBudget() < rent && tenant->getAgreeability() >= 2) {
     tenant = NULL;
@@ -30,10 +30,11 @@ std::string House::toString()
 {
   std::string out = "";
   out += "House \n      Rent: " + std::to_string(rent) + "\n" + 
+         "      Number of Tenants: " + std::to_string(numOfTenants) + "\n" +
          "      Value: " + std::to_string(value) + "\n" + 
          "      Mortgage: " + std::to_string(mortgage_total) + "\n" +
          "      Monthly Mortgage Payments: " + std::to_string(mortgage_monthly) + "\n" +
-         "      Turns to pay off mortgage: " + std::to_string(mortgage_length);
+         "      Location:  " + getLocation();
   return out;
 }
 

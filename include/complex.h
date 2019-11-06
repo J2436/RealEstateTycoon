@@ -16,9 +16,9 @@ public:
     Complex(const Complex &orig);
     Complex & operator=(const Complex &orig);
 
+private:
     int numOfSpaces;
     Space* spaces;
-private:
     // Property** spaces;
 };
 

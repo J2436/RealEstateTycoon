@@ -10,6 +10,9 @@ public:
     virtual std::string toString() = 0;
     void setRent(int);
     void setLocation();
+    int getValue();
+    int getMortgage();
+    int getTax();
     bool isVacant();
     std::string getLocation();
 
@@ -23,7 +26,7 @@ protected:
     int mortgage_length;
     int mortgage_monthly;
     float propTax;
-    float value;
+    int value;
     int rent;
     std::string location;
 };

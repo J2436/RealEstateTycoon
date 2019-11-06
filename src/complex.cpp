@@ -79,6 +79,6 @@ std::string Complex::toString()
          "      Value: " + std::to_string(value) + "\n" + 
          "      Mortgage: " + std::to_string(mortgage_total) + "\n" +
          "      Monthly Mortgage Payments: " + std::to_string(mortgage_monthly) + "\n" +
-         "      Turns to pay off mortgage: " + std::to_string(mortgage_length);
+         "      Location: " + getLocation();
   return out;
 }
